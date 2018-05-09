@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="系统辨识——通过预测减少信息延时的方法：我个人理解的系统辨识是通过系统历史输入输出数据得出一个数学模型模拟该实际系统，如果辨识出的模型和真实模型拟合程度高的话，那么对之后的任何一组新数据，我们都可以知道它输入到该系统之后系统的输出，换个更加口语化的表述：我们可以在系统作出对一个输入的响应之前预测该响应，举一个简单的例子，空调-房间模型：房间室温为30摄氏度，此时空调以 10KW 的功率制冷，那么一">
+<meta name="description" content="系统辨识——通过预测减少信息延时的方法：我个人理解的系统辨识是通过系统历史输入输出数据得出一个数学模型模拟该实际系统，如果辨识出的模型和真实模型拟合程度高的话，那么对之后的任何一组新数据，我们都可以知道它输入到该系统之后系统的输出，换个更加口语化的表述：我们可以在系统作出对一个输入的响应之前预测该响应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统辨识 &amp; 自己蠢蠢的想法">
 <meta property="og:url" content="http://yoursite.com/2018/05/08/系统辨识学习有感/index.html">
 <meta property="og:site_name" content="小白的博客">
-<meta property="og:description" content="系统辨识——通过预测减少信息延时的方法：我个人理解的系统辨识是通过系统历史输入输出数据得出一个数学模型模拟该实际系统，如果辨识出的模型和真实模型拟合程度高的话，那么对之后的任何一组新数据，我们都可以知道它输入到该系统之后系统的输出，换个更加口语化的表述：我们可以在系统作出对一个输入的响应之前预测该响应，举一个简单的例子，空调-房间模型：房间室温为30摄氏度，此时空调以 10KW 的功率制冷，那么一">
+<meta property="og:description" content="系统辨识——通过预测减少信息延时的方法：我个人理解的系统辨识是通过系统历史输入输出数据得出一个数学模型模拟该实际系统，如果辨识出的模型和真实模型拟合程度高的话，那么对之后的任何一组新数据，我们都可以知道它输入到该系统之后系统的输出，换个更加口语化的表述：我们可以在系统作出对一个输入的响应之前预测该响应">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/result.png">
 <meta property="og:image" content="http://yoursite.com/images/result2.png">
 <meta property="og:image" content="http://yoursite.com/images/result3.png">
-<meta property="og:updated_time" content="2018-05-08T13:53:08.000Z">
+<meta property="og:updated_time" content="2018-05-09T02:02:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统辨识 &amp; 自己蠢蠢的想法">
-<meta name="twitter:description" content="系统辨识——通过预测减少信息延时的方法：我个人理解的系统辨识是通过系统历史输入输出数据得出一个数学模型模拟该实际系统，如果辨识出的模型和真实模型拟合程度高的话，那么对之后的任何一组新数据，我们都可以知道它输入到该系统之后系统的输出，换个更加口语化的表述：我们可以在系统作出对一个输入的响应之前预测该响应，举一个简单的例子，空调-房间模型：房间室温为30摄氏度，此时空调以 10KW 的功率制冷，那么一">
+<meta name="twitter:description" content="系统辨识——通过预测减少信息延时的方法：我个人理解的系统辨识是通过系统历史输入输出数据得出一个数学模型模拟该实际系统，如果辨识出的模型和真实模型拟合程度高的话，那么对之后的任何一组新数据，我们都可以知道它输入到该系统之后系统的输出，换个更加口语化的表述：我们可以在系统作出对一个输入的响应之前预测该响应">
 <meta name="twitter:image" content="http://yoursite.com/images/result.png">
 
 
@@ -336,7 +336,7 @@
       
 
       
-        <h3 id="系统辨识——通过预测减少信息延时的方法："><a href="#系统辨识——通过预测减少信息延时的方法：" class="headerlink" title="系统辨识——通过预测减少信息延时的方法："></a>系统辨识——通过预测减少信息延时的方法：</h3><p>我个人理解的系统辨识是通过系统历史输入输出数据得出一个数学模型模拟该实际系统，如果辨识出的模型和真实模型拟合程度高的话，那么对之后的任何一组新数据，我们都可以知道它输入到该系统之后系统的输出，换个更加口语化的表述：我们可以在系统作出对一个输入的响应之前预测该响应，举一个简单的例子，空调-房间模型：房间室温为30摄氏度，此时空调以 10KW 的功率制冷，那么一分钟后室内温度会变成多少度？或者说室内温度变化曲线是怎么样的？在平时，在一个特定时刻之前我们无法获得这个时刻之后的温度曲线，例如在2点时我们无法获得2点以后的温度曲线，当且仅当时间轴运行到该时刻我才能获得该时刻的输出信息，而且很多情况下，是该时刻之前的历史信息。从另一种角度来说，我们被动地被系统的时间特性牵绊住，最多做到获取信息无滞后，而无法超前获得信息。而系统辨识就是提供了一种超前获取系统输出信息的方法，他利用真实的系统输入输出数据去构建一个数学模型，当这个模型足够有效时，我们就可以利用这个模型计算之后的输入对应的系统输出，从而为我们在争取了时间上的优势。</p>
+        <h3 id="系统辨识——通过预测减少信息延时的方法："><a href="#系统辨识——通过预测减少信息延时的方法：" class="headerlink" title="系统辨识——通过预测减少信息延时的方法："></a>系统辨识——通过预测减少信息延时的方法：</h3><p>我个人理解的系统辨识是通过系统历史输入输出数据得出一个数学模型模拟该实际系统，如果辨识出的模型和真实模型拟合程度高的话，那么对之后的任何一组新数据，我们都可以知道它输入到该系统之后系统的输出，换个更加口语化的表述：我们可以在系统作出对一个输入的响应之前预测该响应<a id="more"></a>，举一个简单的例子，空调-房间模型：房间室温为30摄氏度，此时空调以 10KW 的功率制冷，那么一分钟后室内温度会变成多少度？或者说室内温度变化曲线是怎么样的？在平时，在一个特定时刻之前我们无法获得这个时刻之后的温度曲线，例如在2点时我们无法获得2点以后的温度曲线，当且仅当时间轴运行到该时刻我才能获得该时刻的输出信息，而且很多情况下，是该时刻之前的历史信息。从另一种角度来说，我们被动地被系统的时间特性牵绊住，最多做到获取信息无滞后，而无法超前获得信息。而系统辨识就是提供了一种超前获取系统输出信息的方法，他利用真实的系统输入输出数据去构建一个数学模型，当这个模型足够有效时，我们就可以利用这个模型计算之后的输入对应的系统输出，从而为我们在争取了时间上的优势。</p>
 <h3 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h3><h4 id="在本例子中，系统有7个输入，4个输出，一共有4000组数据"><a href="#在本例子中，系统有7个输入，4个输出，一共有4000组数据" class="headerlink" title="在本例子中，系统有7个输入，4个输出，一共有4000组数据"></a>在本例子中，系统有7个输入，4个输出，一共有4000组数据</h4><p>7输入4输出，首先根据输出进行划分，7个输入分别对于4个输出都有影响，也就是说存在着4*7=28个影响通道，我们将整个系统分成四个子系统，利用7个数据分别构建四个多输入单输出子模型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">假设 </span><br><span class="line">    四个输出 为 Out1 Out2 Out3 Out4</span><br><span class="line">    七个输入 为 InPut1 InPut2 InPut3 InPut4 InPut5 InPut6 InPut7</span><br><span class="line">那么 </span><br><span class="line">    Out1 = model1( InPut1 InPut2 InPut3 InPut4 InPut5 InPut6 InPut7 ) </span><br><span class="line">    Out2 = model2( InPut1 InPut2 InPut3 InPut4 InPut5 InPut6 InPut7 ) </span><br><span class="line">    Out3 = model3( InPut1 InPut2 InPut3 InPut4 InPut5 InPut6 InPut7 )  </span><br><span class="line">    Out4 = model4( InPut1 InPut2 InPut3 InPut4 InPut5 InPut6 InPut7 )</span><br></pre></td></tr></table></figure></p>
 <p>对于每个Model的辨识 ，我们都需要知道如何各个Input对于Out的影响通道，每一个Input对于Out都有他的影响方式，因此上述的表达式可以转化为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Out k = model k1(input1) + model k2(input2)+model k3(input3)+model k4(input4)+model k5(input5)+model k6(input6)+model k7(input7)</span><br><span class="line">k = range(1:4)</span><br></pre></td></tr></table></figure></p>
 <p>其中model kj 代表 Input j 对于 Out k的影响通道，其实我们要辨识的是28个SISO模型。那么如何去辨识一个SISO模型呢？我们还需要知道 Input j 对于 Out k的影响延时（也就是一个输入要过多久才能影响到Out k当中去）以及 Input j 对于 Out k 的影响阶数（因为系统的Out k是一个对于历史输入的综合响应,换句话说，t时刻的Out可能是由 t-k ～ t时刻的输入共同影响的结果，而k就是阶数）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Out(t) = A0*Input(t) + A1*Input(t-1) + A2*Input(t-2) ……</span><br></pre></td></tr></table></figure></p>
