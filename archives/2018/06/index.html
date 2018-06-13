@@ -79,17 +79,16 @@
 
 
 
-<meta name="description" content="题目 ： Median分值 ： 25 难度 ： 简单题 思路 ： 应该用二分的，想直接排序可能超时，结果懒得写试了一下，果然数据没这么厉害.. 坑点 ： 最大的坑点就是迷惑你想让你用二分，恶心你，其实直接sort 评语 ： 哈哈哈，二分诱惑陷阱题. 具体代码如下12345678910111213141516#include &amp;lt;iostream&amp;gt;#include &amp;lt;algorith">
+<meta name="description" content="坚持打卡，坚持学习！">
 <meta property="og:type" content="website">
-<meta property="og:title" content="PAT 1029">
-<meta property="og:url" content="http://yoursite.com/PAT/PAT1029/index.html">
+<meta property="og:title" content="黑小猪与猪小白">
+<meta property="og:url" content="http://yoursite.com/archives/2018/06/index.html">
 <meta property="og:site_name" content="黑小猪与猪小白">
-<meta property="og:description" content="题目 ： Median分值 ： 25 难度 ： 简单题 思路 ： 应该用二分的，想直接排序可能超时，结果懒得写试了一下，果然数据没这么厉害.. 坑点 ： 最大的坑点就是迷惑你想让你用二分，恶心你，其实直接sort 评语 ： 哈哈哈，二分诱惑陷阱题. 具体代码如下12345678910111213141516#include &amp;lt;iostream&amp;gt;#include &amp;lt;algorith">
+<meta property="og:description" content="坚持打卡，坚持学习！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-24T09:33:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PAT 1029">
-<meta name="twitter:description" content="题目 ： Median分值 ： 25 难度 ： 简单题 思路 ： 应该用二分的，想直接排序可能超时，结果懒得写试了一下，果然数据没这么厉害.. 坑点 ： 最大的坑点就是迷惑你想让你用二分，恶心你，其实直接sort 评语 ： 哈哈哈，二分诱惑陷阱题. 具体代码如下12345678910111213141516#include &amp;lt;iostream&amp;gt;#include &amp;lt;algorith">
+<meta name="twitter:title" content="黑小猪与猪小白">
+<meta name="twitter:description" content="坚持打卡，坚持学习！">
 
 
 
@@ -119,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/PAT/PAT1029/"/>
+  <link rel="canonical" href="http://yoursite.com/archives/2018/06/"/>
 
 
 
 
 
-  <title>PAT 1029 | 黑小猪与猪小白</title>
+  <title>归档 | 黑小猪与猪小白</title>
   
 
 
@@ -144,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -228,41 +227,74 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-	<h1 class="post-title" itemprop="name headline">PAT 1029</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
+      <span class="archive-page-counter">
         
         
-          <h4 id="题目-：-Median"><a href="#题目-：-Median" class="headerlink" title="题目 ： Median"></a>题目 ： Median</h4><pre><code>分值 ： 25
-难度 ： 简单题
-思路 ： 应该用二分的，想直接排序可能超时，结果懒得写试了一下，果然数据没这么厉害..
-坑点 ： 最大的坑点就是迷惑你想让你用二分，恶心你，其实直接sort
-评语 ： 哈哈哈，二分诱惑陷阱题.
-</code></pre><h4 id="具体代码如下"><a href="#具体代码如下" class="headerlink" title="具体代码如下"></a>具体代码如下</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a , <span class="keyword">int</span> b )</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="keyword">return</span> a &gt; b  ;&#125;</span><br><span class="line"><span class="keyword">int</span> data[<span class="number">2000001</span>] ;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N,cur = <span class="number">0</span>;<span class="built_in">cin</span> &gt;&gt; N ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i&lt; N ;i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; data[cur++] ;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i&lt; N ;i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; data[cur++] ;</span><br><span class="line">    sort(data,data+cur,cmp);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; data[cur/<span class="number">2</span>] &lt;&lt;<span class="built_in">endl</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
+          
+        
+        嗯..! 目前共计 7 篇日志。 继续努力。
+      </span>
+
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2018">2018</h1>
+          </div>
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/06/13/基于系统过滤的酒店推荐系统/" itemprop="url">
+              
+                <span itemprop="name">基于协同过滤的酒店推荐系统</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-06-13T11:17:33+08:00"
+              content="2018-06-13" >
+          06-13
+        </time>
       </div>
+
+    </header>
+  </article>
+
+
+
       
-      
-      
+
     </div>
-    
-    
-    
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -270,10 +302,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -294,17 +322,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -350,22 +369,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目-：-Median"><span class="nav-number">1.</span> <span class="nav-text">题目 ： Median</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体代码如下"><span class="nav-number">2.</span> <span class="nav-text">具体代码如下</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -526,10 +529,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
 
   
 
