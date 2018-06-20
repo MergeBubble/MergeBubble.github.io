@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="题目 ： Tree Traversals Again分值 ： 25 难度 ： 中等题 思路 ： 根据题目意思,利用他给的模拟栈操作去构建树,然后去弄出后续遍历 坑点 ： 一开始我把 push的数字当作前序序列(他的确是前序),把pop的数字当作是中序序列(也的确)        是中序,然后根据前序序列和中序序列去搞出后序序列,用的是自己的小技巧,按照前序序列插入        比较大小准则则用该">
-<meta property="og:type" content="website">
-<meta property="og:title" content="PAT 1086">
-<meta property="og:url" content="http://yoursite.com/PAT/PAT1086/index.html">
+<meta name="description" content="困境：孤掌难鸣突然发现有一种很明显的困境，一个传输线路的两端，发送端一直不停的发送消息，但是接收端因为缓冲区满了，永远都只能讲发送端发送过来的信息丢弃掉，这样的信息丢失率导致无数次重传，效率低下，为了提高信息的传输效率，发送端只能无止境的重传消息，接收端又自己的苦难，他的缓冲区太小了，这是他无法接受发过来的消息的原因，发送端知道他的困境，他能做的除了不断的发送消息，还有就是不发消息，然后这条连接就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="孤掌难鸣">
+<meta property="og:url" content="http://yoursite.com/2018/06/20/孤掌难鸣/index.html">
 <meta property="og:site_name" content="黑小猪与猪小白">
-<meta property="og:description" content="题目 ： Tree Traversals Again分值 ： 25 难度 ： 中等题 思路 ： 根据题目意思,利用他给的模拟栈操作去构建树,然后去弄出后续遍历 坑点 ： 一开始我把 push的数字当作前序序列(他的确是前序),把pop的数字当作是中序序列(也的确)        是中序,然后根据前序序列和中序序列去搞出后序序列,用的是自己的小技巧,按照前序序列插入        比较大小准则则用该">
+<meta property="og:description" content="困境：孤掌难鸣突然发现有一种很明显的困境，一个传输线路的两端，发送端一直不停的发送消息，但是接收端因为缓冲区满了，永远都只能讲发送端发送过来的信息丢弃掉，这样的信息丢失率导致无数次重传，效率低下，为了提高信息的传输效率，发送端只能无止境的重传消息，接收端又自己的苦难，他的缓冲区太小了，这是他无法接受发过来的消息的原因，发送端知道他的困境，他能做的除了不断的发送消息，还有就是不发消息，然后这条连接就">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-13T12:14:25.000Z">
+<meta property="og:updated_time" content="2018-06-20T14:43:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PAT 1086">
-<meta name="twitter:description" content="题目 ： Tree Traversals Again分值 ： 25 难度 ： 中等题 思路 ： 根据题目意思,利用他给的模拟栈操作去构建树,然后去弄出后续遍历 坑点 ： 一开始我把 push的数字当作前序序列(他的确是前序),把pop的数字当作是中序序列(也的确)        是中序,然后根据前序序列和中序序列去搞出后序序列,用的是自己的小技巧,按照前序序列插入        比较大小准则则用该">
+<meta name="twitter:title" content="孤掌难鸣">
+<meta name="twitter:description" content="困境：孤掌难鸣突然发现有一种很明显的困境，一个传输线路的两端，发送端一直不停的发送消息，但是接收端因为缓冲区满了，永远都只能讲发送端发送过来的信息丢弃掉，这样的信息丢失率导致无数次重传，效率低下，为了提高信息的传输效率，发送端只能无止境的重传消息，接收端又自己的苦难，他的缓冲区太小了，这是他无法接受发过来的消息的原因，发送端知道他的困境，他能做的除了不断的发送消息，还有就是不发消息，然后这条连接就">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/PAT/PAT1086/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/20/孤掌难鸣/"/>
 
 
 
 
 
-  <title>PAT 1086 | 黑小猪与猪小白</title>
+  <title>孤掌难鸣 | 黑小猪与猪小白</title>
   
 
 
@@ -230,48 +230,151 @@
 
   <div id="posts" class="posts-expand">
     
+
+    
+
     
     
-    <div class="post-block page">
-      <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">PAT 1086</h1>
+    <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    
+    
+    
+  
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/20/孤掌难鸣/">
 
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="黑小猪与猪小白">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/head.jpg">
+      </span>
 
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="黑小猪与猪小白">
+      </span>
 
-</header>
+      
+        <header class="post-header">
+
+          
+          
+            <h1 class="post-title" itemprop="name headline">孤掌难鸣</h1>
+          
+          <div class="post-meta">
+            <span class="post-time">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">发表于</span>
+                
+                <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T22:34:17+08:00">
+                  2018-06-20
+                </time>
+              
+
+              
+
+              
+            </span>
+
+            
+
+            
+              
+            
+
+            
+            
+               <span id="/2018/06/20/孤掌难鸣/" class="leancloud_visitors" data-flag-title="孤掌难鸣">
+                 <span class="post-meta-divider">|</span>
+                 <span class="post-meta-item-icon">
+                   <i class="fa fa-eye"></i>
+                 </span>
+                 
+                   <span class="post-meta-item-text">阅读次数&#58;</span>
+                 
+                   <span class="leancloud-visitors-count"></span>
+               </span>
+            
+
+            
+
+            
+
+            
+
+          </div>
+        </header>
+      
 
       
       
       
-      <div class="post-body">
+      <div class="post-body" itemprop="articleBody">
+
         
         
-          <h4 id="题目-：-Tree-Traversals-Again"><a href="#题目-：-Tree-Traversals-Again" class="headerlink" title="题目 ： Tree Traversals Again"></a>题目 ： Tree Traversals Again</h4><pre><code>分值 ： 25
-难度 ： 中等题
-思路 ： 根据题目意思,利用他给的模拟栈操作去构建树,然后去弄出后续遍历
-坑点 ： 一开始我把 push的数字当作前序序列(他的确是前序),把pop的数字当作是中序序列(也的确)
-       是中序,然后根据前序序列和中序序列去搞出后序序列,用的是自己的小技巧,按照前序序列插入
-       比较大小准则则用该对象在中序序列的下标:因为在中序序列中,下标从小到大是 左 中 右 
-       因此可以作为插入建树的比较准则 -&gt; 去判断应该插在左子树还是右子树, 但在这题当中因为
-       题目特殊性,进来的节点可能是重复的,这就让我这个搜索元素下标的子函数混淆了,他无法标记
-       相同元素进入的前后性质.因此是行不通的. 
-       故而思索再三,觉得只能够依据它输入的 push 队列和 pop 队列去寻找规律,发现每次push是
-       在当前节点下插入一个节点,且遵循先左子树后右子树的特点.而 Pop 则是将一个节点 Pop出去
-       如果这个节点被 pop过则继续往上 pop,相当于游标往上移动,换句话说,pop 操作是从一些节点
-       往上追溯到下一个插入的节点,所以我在节点结构体中加入 bool pop 表征这个节点是否被pop过
-       如果没有,则代表这个节点pop就行,游标停在当前节点,下次如果进来一个push就是对这个节点进
-       行插入操作.如果有那么游标就要向上找到第一个没有被pop的父节点来作为下一次push的操作节点.
-</code></pre><h4 id="具体代码如下"><a href="#具体代码如下" class="headerlink" title="具体代码如下"></a>具体代码如下</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> flag = <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> self ;</span><br><span class="line">    Node* left ;</span><br><span class="line">    Node* right;</span><br><span class="line">    Node* par ;</span><br><span class="line">    <span class="keyword">bool</span> pop=<span class="literal">false</span> ;</span><br><span class="line">&#125;Nodes ;</span><br><span class="line"><span class="function">Nodes* <span class="title">new_node</span><span class="params">(<span class="keyword">int</span> value)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Nodes* temp = (Nodes*) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    temp-&gt;self = value ;</span><br><span class="line">    temp-&gt;left =<span class="literal">NULL</span> ;</span><br><span class="line">    temp-&gt;right =<span class="literal">NULL</span> ;</span><br><span class="line">    temp-&gt;par =<span class="literal">NULL</span> ;</span><br><span class="line">    <span class="keyword">return</span> temp ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(Nodes *pos)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        postorder(pos-&gt;left);</span><br><span class="line">        postorder(pos-&gt;right);</span><br><span class="line">        <span class="keyword">if</span>(flag++)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt;pos-&gt;self ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">Nodes *T , *head ,*cur ;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N ; <span class="built_in">cin</span>&gt;&gt;N ;</span><br><span class="line">    <span class="built_in">string</span> s ;</span><br><span class="line">    <span class="keyword">int</span> temp ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i&lt; <span class="number">2</span>*N ;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt;s ;</span><br><span class="line">        <span class="keyword">if</span>(s[<span class="number">1</span>]==<span class="string">'u'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; temp ;</span><br><span class="line">            T =new_node(temp) ;</span><br><span class="line">            <span class="keyword">if</span>(cur==<span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                head =T;</span><br><span class="line">                cur =head;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (cur-&gt;left == <span class="literal">NULL</span>)</span><br><span class="line">                    cur-&gt;left = T;</span><br><span class="line">                <span class="keyword">else</span> cur-&gt;right = T;</span><br><span class="line">                T-&gt;par = cur;</span><br><span class="line">                cur = T;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (cur-&gt;pop)</span><br><span class="line">                cur =cur-&gt;par ;</span><br><span class="line">            cur-&gt;pop =<span class="literal">true</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    postorder(head) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+          <h3 id="困境：孤掌难鸣"><a href="#困境：孤掌难鸣" class="headerlink" title="困境：孤掌难鸣"></a>困境：孤掌难鸣</h3><pre><code>突然发现有一种很明显的困境，一个传输线路的两端，发送端一直不停的发送消息，但是接收端因为缓冲区满了，永远都只能讲发送端发送过来的信息丢弃掉，这样的信息丢失率导致无数次重传，效率低下，为了提高信息的传输效率，发送端只能无止境的重传消息，接收端又自己的苦难，他的缓冲区太小了，这是他无法接受发过来的消息的原因，发送端知道他的困境，他能做的除了不断的发送消息，还有就是不发消息，然后这条连接就空闲了。可是接收端能忍受没有数据流，他最好没有任何数据流，但这对于提高收发效率而言是不可能的，发送端很纠结，他的态度是尽可能的增加两端之间的交流，而接收端佛学的态度是拒绝过大的数据流，哪怕是发送端再也不主动发起联系他也不在乎。这就是孤掌难鸣困境。
+</code></pre>
         
       </div>
       
       
       
+
+      
+
+      
+
+      
+
+      <footer class="post-footer">
+        
+
+        
+        
+        
+
+        
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/06/15/浅谈求解函数的“全局”最小值/" rel="next" title="浅谈求解函数的“全局”最小值">
+                  <i class="fa fa-chevron-left"></i> 浅谈求解函数的“全局”最小值
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+
+        
+        
+      </footer>
     </div>
+  
     
     
     
+    </article>
+  
+  
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -370,7 +473,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目-：-Tree-Traversals-Again"><span class="nav-number">1.</span> <span class="nav-text">题目 ： Tree Traversals Again</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体代码如下"><span class="nav-number">2.</span> <span class="nav-text">具体代码如下</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#困境：孤掌难鸣"><span class="nav-number">1.</span> <span class="nav-text">困境：孤掌难鸣</span></a></li></ol></div>
             
 
           </div>
