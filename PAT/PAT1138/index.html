@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="题目 ： Deepest Root分值 ： 25 难度 ： 中等题 思路 ： 路径压缩先判断连统集，然后用一个佛洛依德算法搞出点到点的最短路径，找到最大的就是        最深的根，然后就是把最大的涉及的头和尾记录下来，顺序打印即可。 坑点 ： 这里因为只有N-1 条边，是个稀疏图，因此使用二维数组存图内存超限，要邻接表，不习惯 评语 ： 很综合的题目，路径压缩判断联通集合数，然后佛洛依德一下，">
+<meta name="description" content="题目 ： Postorder Traversal分值 ： 25 难度 ： 颠覆题 思路 ： 一开始信心很足，因为中序前序转后序我势在必得，有自己的下标法,然而在这题遇到了坑        被卡时间了,原因在于下标法依赖于中序的下标作为判断准则,然后建树再遍历,这是会超时        的,如果单纯的让你去打印后序，直接递归更现实。 坑点 ： 下标法会超时 具体代码如下123456789101112">
 <meta property="og:type" content="website">
-<meta property="og:title" content="PAT 1021">
-<meta property="og:url" content="http://yoursite.com/PAT/PAT1021/index.html">
+<meta property="og:title" content="PAT 1138">
+<meta property="og:url" content="http://yoursite.com/PAT/PAT1138/index.html">
 <meta property="og:site_name" content="黑小猪与猪小白">
-<meta property="og:description" content="题目 ： Deepest Root分值 ： 25 难度 ： 中等题 思路 ： 路径压缩先判断连统集，然后用一个佛洛依德算法搞出点到点的最短路径，找到最大的就是        最深的根，然后就是把最大的涉及的头和尾记录下来，顺序打印即可。 坑点 ： 这里因为只有N-1 条边，是个稀疏图，因此使用二维数组存图内存超限，要邻接表，不习惯 评语 ： 很综合的题目，路径压缩判断联通集合数，然后佛洛依德一下，">
+<meta property="og:description" content="题目 ： Postorder Traversal分值 ： 25 难度 ： 颠覆题 思路 ： 一开始信心很足，因为中序前序转后序我势在必得，有自己的下标法,然而在这题遇到了坑        被卡时间了,原因在于下标法依赖于中序的下标作为判断准则,然后建树再遍历,这是会超时        的,如果单纯的让你去打印后序，直接递归更现实。 坑点 ： 下标法会超时 具体代码如下123456789101112">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-30T13:05:00.000Z">
+<meta property="og:updated_time" content="2018-08-27T11:03:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PAT 1021">
-<meta name="twitter:description" content="题目 ： Deepest Root分值 ： 25 难度 ： 中等题 思路 ： 路径压缩先判断连统集，然后用一个佛洛依德算法搞出点到点的最短路径，找到最大的就是        最深的根，然后就是把最大的涉及的头和尾记录下来，顺序打印即可。 坑点 ： 这里因为只有N-1 条边，是个稀疏图，因此使用二维数组存图内存超限，要邻接表，不习惯 评语 ： 很综合的题目，路径压缩判断联通集合数，然后佛洛依德一下，">
+<meta name="twitter:title" content="PAT 1138">
+<meta name="twitter:description" content="题目 ： Postorder Traversal分值 ： 25 难度 ： 颠覆题 思路 ： 一开始信心很足，因为中序前序转后序我势在必得，有自己的下标法,然而在这题遇到了坑        被卡时间了,原因在于下标法依赖于中序的下标作为判断准则,然后建树再遍历,这是会超时        的,如果单纯的让你去打印后序，直接递归更现实。 坑点 ： 下标法会超时 具体代码如下123456789101112">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/PAT/PAT1021/"/>
+  <link rel="canonical" href="http://yoursite.com/PAT/PAT1138/"/>
 
 
 
 
 
-  <title>PAT 1021 | 黑小猪与猪小白</title>
+  <title>PAT 1138 | 黑小猪与猪小白</title>
   
 
 
@@ -235,7 +235,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">PAT 1021</h1>
+	<h1 class="post-title" itemprop="name headline">PAT 1138</h1>
 
 
 
@@ -247,22 +247,13 @@
       <div class="post-body">
         
         
-          <h4 id="题目-：-Deepest-Root"><a href="#题目-：-Deepest-Root" class="headerlink" title="题目 ： Deepest Root"></a>题目 ： Deepest Root</h4><pre><code>分值 ： 25
-难度 ： 中等题
-思路 ： 路径压缩先判断连统集，然后用一个佛洛依德算法搞出点到点的最短路径，找到最大的就是
-       最深的根，然后就是把最大的涉及的头和尾记录下来，顺序打印即可。
-坑点 ： 这里因为只有N-1 条边，是个稀疏图，因此使用二维数组存图内存超限，要邻接表，不习惯
-评语 ： 很综合的题目，路径压缩判断联通集合数，然后佛洛依德一下，关键是要邻接表实现才能全
-       部ac让人很生气，邻接表不想去做。
-第二次复习时的做法：(因为我的做法内存使用弗洛伊德内存超限,因此参考了柳诺大神的DFS思路)
-       使用DFS 判断有几个联通集,从 1到 N号节点,如果当前节点未被访问过就对他
-       DFS,并且cnt++ ; 直到所有的节点都被访问过,然后看 cnt是否为一 ;因为如果cnt为1,也
-       就说明第一次从1这个节点往下深搜,其他所有节点都被访问到,也就是所有点在同一联通集.
-       关于最深的节点集合: 第一次深搜得到的最深的节点们 记录在 set s 中,然后任意取其中一
-       个节点,对其DFS(要记得初始条件清零),也就等同于从边缘的点开始深搜整棵树树,然后得到的
-       节点继续记录在 set s中,这两次DFS的并集就是答案,且set是自动升序排序的.
-感觉 ： 感觉自己的DFS要强化,包括普通 DFS 和 DFS回溯 .
-</code></pre><h4 id="具体代码如下"><a href="#具体代码如下" class="headerlink" title="具体代码如下"></a>具体代码如下</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span> &lt; <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; Map;</span><br><span class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; temp ;</span><br><span class="line"><span class="keyword">bool</span> flag[<span class="number">10010</span>] ;</span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span> &gt; s ;</span><br><span class="line"><span class="keyword">int</span> max_height = <span class="number">0</span> ;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dfs</span><span class="params">(<span class="keyword">int</span> x , <span class="keyword">int</span> deep)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    flag[x] = <span class="literal">true</span> ;</span><br><span class="line">    <span class="keyword">if</span>(deep &gt; max_height)</span><br><span class="line">    &#123;</span><br><span class="line">        temp.clear();</span><br><span class="line">        max_height = deep ;</span><br><span class="line">        temp.push_back(x) ;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(deep == max_height)</span><br><span class="line">        temp.push_back(x) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i&lt; Map[x].size() ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(flag[Map[x][i]] == <span class="literal">false</span> )</span><br><span class="line">            Dfs(Map[x][i] , deep+<span class="number">1</span>) ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N ,c1,c2,s1,cnt=<span class="number">0</span> ;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N ;</span><br><span class="line">    Map.resize(N+<span class="number">1</span>) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i&lt; N<span class="number">-1</span> ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt;c1 &gt;&gt;c2 ;</span><br><span class="line">        Map[c1].push_back(c2) ;</span><br><span class="line">        Map[c2].push_back(c1) ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span> ; i&lt;=N ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(flag[i] ) <span class="keyword">continue</span> ;</span><br><span class="line">        Dfs(i , <span class="number">1</span> ) ;</span><br><span class="line">        <span class="keyword">if</span>(i ==<span class="number">1</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(temp.size()!=<span class="number">0</span> ) s1 = temp[<span class="number">0</span>] ;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ;j&lt; temp.size(); j++)</span><br><span class="line">                s.insert(temp[j]) ;</span><br><span class="line">        &#125;</span><br><span class="line">        cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt &gt;=<span class="number">2</span> )</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Error: %d components\n"</span> , cnt) ;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        max_height = <span class="number">0</span> ;</span><br><span class="line">        temp.clear();</span><br><span class="line">        fill(flag, flag+<span class="number">10010</span> , <span class="literal">false</span> );</span><br><span class="line">        Dfs(s1,<span class="number">1</span>) ;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i&lt; temp.size() ; i++)</span><br><span class="line">            s.insert(temp[i]) ;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i = s.begin() ; i!=s.end() ; i++)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; *i&lt;&lt;<span class="built_in">endl</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h4 id="题目-：-Postorder-Traversal"><a href="#题目-：-Postorder-Traversal" class="headerlink" title="题目 ： Postorder Traversal"></a>题目 ： Postorder Traversal</h4><pre><code>分值 ： 25
+难度 ： 颠覆题
+思路 ： 一开始信心很足，因为中序前序转后序我势在必得，有自己的下标法,然而在这题遇到了坑
+       被卡时间了,原因在于下标法依赖于中序的下标作为判断准则,然后建树再遍历,这是会超时
+       的,如果单纯的让你去打印后序，直接递归更现实。
+坑点 ： 下标法会超时
+</code></pre><h4 id="具体代码如下"><a href="#具体代码如下" class="headerlink" title="具体代码如下"></a>具体代码如下</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span> &gt; pre,in ;</span><br><span class="line"><span class="keyword">bool</span> FLAG = <span class="literal">true</span> ;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(<span class="keyword">int</span> prel , <span class="keyword">int</span> s , <span class="keyword">int</span> d )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s &gt; d) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">int</span> i = s ;</span><br><span class="line">    <span class="keyword">while</span>(in[i]!=pre[prel]) i++ ;</span><br><span class="line">    postorder(prel+<span class="number">1</span> ,s , i<span class="number">-1</span>);</span><br><span class="line">    postorder(prel+<span class="number">1</span>+i-s , i+<span class="number">1</span> ,d);</span><br><span class="line">    <span class="keyword">if</span>(FLAG)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; in[i]&lt;&lt;<span class="built_in">endl</span> ;</span><br><span class="line">        FLAG =<span class="literal">false</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N ;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N ;</span><br><span class="line">    pre.resize(N) ;</span><br><span class="line">    in.resize(N) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; N ;i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt;pre[i] ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; N ;i++)</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt;in[i] ;</span><br><span class="line">    postorder(<span class="number">0</span>,<span class="number">0</span>,N<span class="number">-1</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
       </div>
       
@@ -370,7 +361,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目-：-Deepest-Root"><span class="nav-number">1.</span> <span class="nav-text">题目 ： Deepest Root</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体代码如下"><span class="nav-number">2.</span> <span class="nav-text">具体代码如下</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目-：-Postorder-Traversal"><span class="nav-number">1.</span> <span class="nav-text">题目 ： Postorder Traversal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体代码如下"><span class="nav-number">2.</span> <span class="nav-text">具体代码如下</span></a></li></ol></div>
             
 
           </div>
