@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Spring注解扫盲墙以下列举了这几天碰到的一些关于Spring注解的用法，注解在之前一直没有系统接触过，现在为了弥补，特意在这里动态更新平时遇到的注解，目的是为了见一个学一个，动态扩容！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring注解">
+<meta property="og:url" content="http://yoursite.com/2019/07/18/spring注解/index.html">
+<meta property="og:site_name" content="黑小猪与猪小白">
+<meta property="og:description" content="Spring注解扫盲墙以下列举了这几天碰到的一些关于Spring注解的用法，注解在之前一直没有系统接触过，现在为了弥补，特意在这里动态更新平时遇到的注解，目的是为了见一个学一个，动态扩容！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-18T12:47:52.836Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring注解">
+<meta name="twitter:description" content="Spring注解扫盲墙以下列举了这几天碰到的一些关于Spring注解的用法，注解在之前一直没有系统接触过，现在为了弥补，特意在这里动态更新平时遇到的注解，目的是为了见一个学一个，动态扩容！">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/18/spring注解/"/>
+
+
+
+
+
+  <title>spring注解 | 黑小猪与猪小白</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">黑小猪与猪小白</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+    
+
+    
+    
+    
+
+    <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    
+    
+    
+  
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/18/spring注解/">
+
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="黑小猪与猪小白">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="/images/head.jpg">
+      </span>
+
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="黑小猪与猪小白">
+      </span>
+
+      
+        <header class="post-header">
+
+          
+          
+            <h1 class="post-title" itemprop="name headline">spring注解</h1>
+          
+          <div class="post-meta">
+            <span class="post-time">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">发表于</span>
+                
+                <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-18T20:40:13+08:00">
+                  2019-07-18
+                </time>
+              
+
+              
+
+              
+            </span>
+
+            
+
+            
+              
+            
+
+            
+            
+               <span id="/2019/07/18/spring注解/" class="leancloud_visitors" data-flag-title="spring注解">
+                 <span class="post-meta-divider">|</span>
+                 <span class="post-meta-item-icon">
+                   <i class="fa fa-eye"></i>
+                 </span>
+                 
+                   <span class="post-meta-item-text">阅读次数&#58;</span>
+                 
+                   <span class="leancloud-visitors-count"></span>
+               </span>
+            
+
+            
+
+            
+
+            
+
+          </div>
+        </header>
+      
+
+      
+      
+      
+      <div class="post-body" itemprop="articleBody">
+
+        
+        
+
+        
+          <h2 id="Spring注解扫盲墙"><a href="#Spring注解扫盲墙" class="headerlink" title="Spring注解扫盲墙"></a>Spring注解扫盲墙</h2><p>以下列举了这几天碰到的一些关于Spring注解的用法，注解在之前一直没有系统接触过，现在为了弥补，特意在这里动态更新平时遇到的注解，目的是为了见一个学一个，动态扩容！<br><a id="more"></a></p>
+<h3 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h3><h4 id="Autowired注解就是从spring容器当中去找到对应的Bean去定义变量，而Bean来自于Spring的xml配置文件，只有在xml文件中配置了某个类的Bean-该Bean才会出现在spring容器中。-！非规范使用容易导致Bean注入失败。"><a href="#Autowired注解就是从spring容器当中去找到对应的Bean去定义变量，而Bean来自于Spring的xml配置文件，只有在xml文件中配置了某个类的Bean-该Bean才会出现在spring容器中。-！非规范使用容易导致Bean注入失败。" class="headerlink" title="Autowired注解就是从spring容器当中去找到对应的Bean去定义变量，而Bean来自于Spring的xml配置文件，只有在xml文件中配置了某个类的Bean,该Bean才会出现在spring容器中。  ！非规范使用容易导致Bean注入失败。"></a>Autowired注解就是从spring容器当中去找到对应的Bean去定义变量，而Bean来自于Spring的xml配置文件，只有在xml文件中配置了某个类的Bean,该Bean才会出现在spring容器中。  ！非规范使用容易导致Bean注入失败。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.spring.model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zoo</span> </span>&#123;</span><br><span class="line"> <span class="comment">// 将@Autowired注解的required属性设置为false 找不到Bean定义为null</span></span><br><span class="line">    <span class="meta">@Autowired</span>(required=<span class="keyword">false</span>)</span><br><span class="line">    <span class="keyword">private</span> Tiger tiger;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span>(required=<span class="keyword">false</span>)</span><br><span class="line">    <span class="keyword">private</span> Monkey monkey;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> tiger + <span class="string">"\n"</span> + monkey;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Qualifier"><a href="#Qualifier" class="headerlink" title="@Qualifier"></a>@Qualifier</h3><h4 id="Qualifier用于在有多个实现类的Bean情况下指定Bean的名称"><a href="#Qualifier用于在有多个实现类的Bean情况下指定Bean的名称" class="headerlink" title="Qualifier用于在有多个实现类的Bean情况下指定Bean的名称"></a>Qualifier用于在有多个实现类的Bean情况下指定Bean的名称</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Icar</span></span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> BMWCar implements Icar&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> BenzCar implements ICar&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>因为Icar接口有两个实现类 BMWCar 和 BenzCar,当两个实现类都在xml中创建了Bean(如下所示)，@Autowired注解就无法辨别使用哪一个Bean来创建对象<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:p</span>=<span class="string">"http://www.springframework.org/schema/p"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">    http://www.springframework.org/schema/context/spring-context-3.0.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">    "</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.spring"</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- Autowired注解配合Qualifier注解 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"carFactory"</span> <span class="attr">class</span>=<span class="string">"com.spring.model.CarFactory"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"bmwCar"</span> <span class="attr">class</span>=<span class="string">"com.spring.service.impl.BMWCar"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"benz"</span> <span class="attr">class</span>=<span class="string">"com.spring.service.impl.BenzCar"</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.spring.model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> com.spring.service.ICar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarFactory</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ICar car;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> car.getCarName();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种情况下，就可以使用@Qualifier 来指定其中一个Bean 来创建对象<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.spring.model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Qualifier;</span><br><span class="line"><span class="keyword">import</span> com.spring.service.ICar;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarFactory</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="meta">@Qualifier</span>(<span class="string">"bmwCar"</span>)</span><br><span class="line">    <span class="keyword">private</span> ICar car;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> car.getCarName();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="service"><a href="#service" class="headerlink" title="@service"></a>@service</h3><h4 id="使用-Service，声明-Service修饰的类名是一个Bean，这样xml不用配置就可以使用-Autowired"><a href="#使用-Service，声明-Service修饰的类名是一个Bean，这样xml不用配置就可以使用-Autowired" class="headerlink" title="使用@Service，声明@Service修饰的类名是一个Bean，这样xml不用配置就可以使用@Autowired"></a>使用@Service，声明@Service修饰的类名是一个Bean，这样xml不用配置就可以使用@Autowired</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.spring.model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="comment">// @Service("Zoo")  </span></span><br><span class="line"><span class="comment">// @Scope("prototype")           // @Scope  singleton代表单例  prototype代表原型</span></span><br><span class="line"><span class="meta">@Service</span>           <span class="comment">// 默认Bean的id是zoo， 我可以通过上述注释方法将Bean的id设为Zoo</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zoo</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Tiger tiger;</span><br><span class="line">      </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Monkey monkey;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> tiger + <span class="string">"\n"</span> + monkey;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Controller-一般用于Consumer层"><a href="#Controller-一般用于Consumer层" class="headerlink" title="@Controller 一般用于Consumer层"></a>@Controller 一般用于Consumer层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@Scope</span>(<span class="string">"prototype"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAction</span> <span class="keyword">extends</span> <span class="title">BaseAction</span>&lt;<span class="title">User</span>&gt;</span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以使@Scope(VALUE) VALUE=’singleton’为单例模式 VALUE=’prototype’保证当前有请求时都会创建一个Action对象，从而保证每一个请求都有一个单独的Action来处理，避免公用一个Action带来的线程安全问题</p>
+<h3 id="注解扫描"><a href="#注解扫描" class="headerlink" title="注解扫描"></a>注解扫描</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.spring"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Data-AllArgsConstructor-NoArgsConstructor"><a href="#Data-AllArgsConstructor-NoArgsConstructor" class="headerlink" title="@Data @AllArgsConstructor @NoArgsConstructor"></a>@Data @AllArgsConstructor @NoArgsConstructor</h3><p>这三个是Lombok插件的注解，具体用法如下所示，直接在User类中 定义其应该有的属性，而不必写setter和getter方法，此外这里还有一个关于DAO层查询数据库返回对象的问题，使用该注释可以避免出现返回class对象字段缺失或者其他报错的问题。使用@NoArgsConstructor 可以定义空的类初始化方法</p>
+<h5 id="！需要注意的点-class-中的属性顺序应该和定义表时的属性顺序尽可能一致，否则可能出现错误（踩过坑）"><a href="#！需要注意的点-class-中的属性顺序应该和定义表时的属性顺序尽可能一致，否则可能出现错误（踩过坑）" class="headerlink" title="！需要注意的点: class 中的属性顺序应该和定义表时的属性顺序尽可能一致，否则可能出现错误（踩过坑）"></a>！需要注意的点: class 中的属性顺序应该和定义表时的属性顺序尽可能一致，否则可能出现错误（踩过坑）</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  用户数据结构：</span></span><br><span class="line"><span class="comment">     *  userId : 用户id  主键</span></span><br><span class="line"><span class="comment">     *  userName : 用户名</span></span><br><span class="line"><span class="comment">     *  userPwd : 用户pwd</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line">    <span class="keyword">private</span> String userPwd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h3>
+        
+      </div>
+      
+      
+      
+
+      
+
+      
+
+      
+
+      <footer class="post-footer">
+        
+
+        
+        
+        
+
+        
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/07/06/first-project/" rel="next" title="新手项目总结">
+                  <i class="fa fa-chevron-left"></i> 新手项目总结
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+
+        
+        
+      </footer>
+    </div>
+  
+    
+    
+    
+    </article>
+  
+  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.jpg"
+                alt="黑小猪与猪小白" />
+            
+              <p class="site-author-name" itemprop="name">黑小猪与猪小白</p>
+              <p class="site-description motion-element" itemprop="description">坚持打卡，坚持学习！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring注解扫盲墙"><span class="nav-number">1.</span> <span class="nav-text">Spring注解扫盲墙</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Autowired"><span class="nav-number">1.1.</span> <span class="nav-text">@Autowired</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Autowired注解就是从spring容器当中去找到对应的Bean去定义变量，而Bean来自于Spring的xml配置文件，只有在xml文件中配置了某个类的Bean-该Bean才会出现在spring容器中。-！非规范使用容易导致Bean注入失败。"><span class="nav-number">1.1.1.</span> <span class="nav-text">Autowired注解就是从spring容器当中去找到对应的Bean去定义变量，而Bean来自于Spring的xml配置文件，只有在xml文件中配置了某个类的Bean,该Bean才会出现在spring容器中。  ！非规范使用容易导致Bean注入失败。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Qualifier"><span class="nav-number">1.2.</span> <span class="nav-text">@Qualifier</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualifier用于在有多个实现类的Bean情况下指定Bean的名称"><span class="nav-number">1.2.1.</span> <span class="nav-text">Qualifier用于在有多个实现类的Bean情况下指定Bean的名称</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#service"><span class="nav-number">1.3.</span> <span class="nav-text">@service</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-Service，声明-Service修饰的类名是一个Bean，这样xml不用配置就可以使用-Autowired"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用@Service，声明@Service修饰的类名是一个Bean，这样xml不用配置就可以使用@Autowired</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller-一般用于Consumer层"><span class="nav-number">1.4.</span> <span class="nav-text">@Controller 一般用于Consumer层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解扫描"><span class="nav-number">1.5.</span> <span class="nav-text">注解扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-AllArgsConstructor-NoArgsConstructor"><span class="nav-number">1.6.</span> <span class="nav-text">@Data @AllArgsConstructor @NoArgsConstructor</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#！需要注意的点-class-中的属性顺序应该和定义表时的属性顺序尽可能一致，否则可能出现错误（踩过坑）"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">！需要注意的点: class 中的属性顺序应该和定义表时的属性顺序尽可能一致，否则可能出现错误（踩过坑）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resource"><span class="nav-number">1.7.</span> <span class="nav-text">@Resource</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黑小猪与猪小白</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("OSANUJgmQXE0eVaqXg02Nl2D-gzGzoHsz", "3VEcksStxKF4tP07OBEcnGAL");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
